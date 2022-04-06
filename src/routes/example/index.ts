@@ -143,6 +143,10 @@ const example: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   }, (req, reply) => {
     reply.send("")
   });
+
+  fastify.get('/no-docs', async (request, reply) => {
+    reply.send({query: request.query, headers: request.headers});
+  });
 }
 
 export default example;
